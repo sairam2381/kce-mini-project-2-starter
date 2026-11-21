@@ -7,8 +7,22 @@ const Card = (props) => {
   let course = props.course;
   let likedCourses = props.likedCourses;
   let setLikedCourses = props.setLikedCourses;
-
-  function clickHandler() {}
+  let key = props.key;
+  function clickHandler() {
+    if (likedCourses.includes(key)) {
+      // setLikedCourses(())
+      const arrData = likedCourses.filter((item) => item.id !== course.id);
+      setLikedCourses(arrData);
+      toast.warning("Like removed");
+    } else {
+      if (likedCourses.length === 0) {
+        setLikedCourses([course.id]);
+      } else {
+        setLikedCourses((prev) => [...prev, course.id]);
+      }
+      toast.success("Post is liked");
+    }
+  }
   const description = course.description || "";
   return (
     <article className="course-card">

@@ -5,8 +5,10 @@ const Filter = (props) => {
   let category = props.category;
   let setCategory = props.setCategory;
 
-  function filterHandler(title) {}
-
+  function filterHandler(title) {
+    setCategory(title);
+  }
+  console.log("Filter data:", filterData);
   return (
     <div className="filters">
       {filterData.map((data) => (

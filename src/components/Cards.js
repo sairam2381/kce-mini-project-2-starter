@@ -26,6 +26,7 @@ const Cards = (props) => {
     }
   }
 
+  console.log("Get courses:", getCourses());
   return (
     <div className="cards">
       {getCourses().map((course) => (
