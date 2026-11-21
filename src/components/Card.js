@@ -9,9 +9,10 @@ const Card = (props) => {
   let setLikedCourses = props.setLikedCourses;
   let key = props.key;
   function clickHandler() {
-    if (likedCourses.includes(key)) {
+    if (likedCourses.includes(course.id)) {
+      console.log("Am I entering into this or not", likedCourses);
       // setLikedCourses(())
-      const arrData = likedCourses.filter((item) => item.id !== course.id);
+      const arrData = likedCourses.filter((item) => item !== course.id);
       setLikedCourses(arrData);
       toast.warning("Like removed");
     } else {
